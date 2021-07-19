@@ -991,3 +991,248 @@ a {
 .team__next {
   right: 35px;
 }
+
+/*===== ability styles =====*/
+.ability {
+  margin-bottom: 100px;
+}
+
+.ability__title {
+  margin-bottom: 35px;
+}
+
+.ability__navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 484px;
+  margin: 0 auto 36px;
+}
+
+.ability__btn,
+.unability__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 274px;
+  height: 66px;
+  background: #f5f7f9;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #2c3f53;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.ability__btn svg,
+.unability__btn svg {
+  margin-right: 17px;
+}
+
+.ability__btn.active,
+.unability__btn.active {
+  background: #fff;
+  -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  -webkit-transform: scaleY(2px) translateY(2px);
+          transform: scaleY(2px) translateY(2px);
+}
+
+.ability__btn path,
+.unability__btn path {
+  fill: #241f20;
+}
+
+.ability__btn.active path,
+.unability__btn.active path {
+  fill: #dc143c;
+}
+
+.ability__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ability__item {
+  width: 148px;
+  height: 199px;
+  padding: 10px;
+  border: 1px solid #eeeff1;
+  -webkit-box-shadow: 0px 2px 10px -3px rgba(4, 4, 4, 0.2);
+          box-shadow: 0px 2px 10px -3px rgba(4, 4, 4, 0.2);
+  border-radius: 12px;
+}
+
+.ability__container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ability__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200%;
+  height: 100%;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.ability__content.active {
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.ability__yes,
+.ability__no {
+  width: 50%;
+  height: 100%;
+}
+
+.ability__icon {
+  margin-bottom: 17px;
+}
+
+.ability__text {
+  font-size: 14px;
+  line-height: 125%;
+  letter-spacing: -0.02em;
+  color: #241f20;
+}
+
+/*===== clients styles =====*/
+.clients {
+  margin-bottom: 100px;
+}
+
+.clients__title {
+  margin-bottom: 73px;
+}
+
+.clients__wrapper {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "client-1 client-2 client-3 client-4 client-5 client-6" "client-7 client-8 client-9 client-10 client-11 client-12" "client-13 client-14 client-15 client-16 client-17 .";
+  grid-gap: 30px;
+}
+
+.client-1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: client-1;
+}
+
+.client-2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: client-2;
+}
+
+.client-3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: client-3;
+}
+
+.client-4 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: client-4;
+}
+
+.client-5 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: client-5;
+}
+
+.client-6 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: client-6;
+}
+
+.client-7 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: client-7;
+}
+
+.client-8 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: client-8;
+}
+
+.client-9 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: client-9;
+}
+
+.client-10 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: client-10;
+}
+
+.client-11 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 5;
+  grid-area: client-11;
+}
+
+.client-12 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 6;
+  grid-area: client-12;
+}
+
+.client-13 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: client-13;
+}
+
+.client-14 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: client-14;
+}
+
+.client-15 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: client-15;
+}
+
+.client-16 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: client-16;
+}
+
+.client-17 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  grid-area: client-17;
+}
