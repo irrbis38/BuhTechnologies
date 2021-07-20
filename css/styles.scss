@@ -111,6 +111,10 @@ body {
   background-color: #fff;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -754,6 +758,12 @@ a {
   max-height: 274px;
   margin-right: 57px;
   align-self: center;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .tariffs__info {
@@ -1002,80 +1012,219 @@ a {
 }
 
 .clients__wrapper {
-  display: grid;
-  grid-template-areas:
-    "client-1 client-2 client-3 client-4 client-5 client-6"
-    "client-7 client-8 client-9 client-10 client-11 client-12"
-    "client-13 client-14 client-15 client-16 client-17 .";
-  // grid-template-columns: repeat(6);
-  // grid-template-rows: repeat(3, 40px);
-  grid-gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.client-1 {
-  grid-area: client-1;
+.clients__logo {
+  height: 35px;
+  width: auto;
+  margin-right: 20px;
+  margin-bottom: 30px;
 }
 
-.client-2 {
-  grid-area: client-2;
+/*===== reviews styles =====*/
+
+.reviews {
+  margin-bottom: $block-margin-botton;
 }
 
-.client-3 {
-  grid-area: client-3;
+.reviews__title {
+  margin-bottom: 35px;
 }
 
-.client-4 {
-  grid-area: client-4;
+.reviews__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.client-5 {
-  grid-area: client-5;
+.reviews__item {
+  position: relative;
+  width: 31.6%;
+  padding: 16px 16px 51px 16px;
+  border: 1px solid #eeeff1;
+  box-shadow: 0px 7px 14px rgba(11, 31, 53, 0.1);
+  border-radius: 8px;
 }
 
-.client-6 {
-  grid-area: client-6;
+.reviews__heading {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 125%;
+  color: #241f20;
 }
 
-.client-7 {
-  grid-area: client-7;
+.reviews__subheading {
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.005em;
+  color: #241f20;
 }
 
-.client-8 {
-  grid-area: client-8;
+.reviews__img {
+  position: relative;
+  width: 100%;
+  height: 217px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #eeeff1;
+  border-radius: 8px;
+
+  & img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
 }
 
-.client-9 {
-  grid-area: client-9;
+.reviews__shadow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  box-shadow: inset 0px 7px 14px rgba(11, 31, 53, 0.1);
+  cursor: pointer;
 }
 
-.client-10 {
-  grid-area: client-10;
+.reviews__hover:hover {
+  opacity: 1;
 }
 
-.client-11 {
-  grid-area: client-11;
+.reviews__hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid #dc143c;
+  background: rgba(160, 8, 56, 0.3);
+  border-radius: 8px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & img {
+    display: block;
+    width: 52px;
+    height: 52px;
+  }
 }
 
-.client-12 {
-  grid-area: client-12;
+.reviews__thanks {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 125%;
+  max-height: 134px;
+  overflow: hidden;
+  transition: max-height 0.2s linear;
 }
 
-.client-13 {
-  grid-area: client-13;
+.review__arrow {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%) rotateX(180deg);
+  transition: all 0.2s linear;
+  cursor: pointer;
+
+  &.active {
+    transform: translateX(-50%) rotateX(0);
+  }
+
+  & path {
+    transition: max-height 0.2s linear;
+  }
+
+  &:hover path {
+    fill-opacity: 1;
+  }
 }
 
-.client-14 {
-  grid-area: client-14;
+.reviews__white-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 5;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  transition: max-height 0.2s linear;
+
+  &.active {
+    opacity: 0;
+  }
 }
 
-.client-15 {
-  grid-area: client-15;
+.reviews__black-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
-.client-16 {
-  grid-area: client-16;
+.review__img-fullscreen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  width: auto;
+  height: 80%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  & img {
+    display: block;
+    width: auto;
+    height: 100%;
+  }
 }
 
-.client-17 {
-  grid-area: client-17;
+.review__close {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  cursor: pointer;
+
+  & path {
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover path {
+    fill-opacity: 1;
+  }
 }
