@@ -146,3 +146,24 @@ faqHeadingAll.forEach(el => {
     }
   });
 });
+
+// карта на весь экран
+
+let map = document.querySelector('.info__map');
+
+let mapBG = document.querySelector('.info__bg');
+let mapCloser = document.querySelector('.info__closer');
+
+let mapClose = (event) => {
+  event.stopPropagation();
+  map.classList.remove('active');
+  body.classList.remove('lock');
+};
+
+map.addEventListener('click', () => {
+  map.classList.add('active');
+  body.classList.add('lock');
+});
+
+mapBG.addEventListener('click', mapClose);
+mapCloser.addEventListener('click', mapClose);
