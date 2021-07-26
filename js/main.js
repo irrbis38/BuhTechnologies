@@ -82,8 +82,8 @@ for (let i = 0; i < reviewCloseAll.length; i++) {
 let reviewSlider = new Swiper('.reviews__slider', {
 
   loop: false,
-  slidesPerView: 3,
-  spaceBetween: 28,
+  slidesPerView: 1.2,
+  spaceBetween: 20,
   grabCursor: true,
   pagination: {
     el: '.reviews__dots',
@@ -91,6 +91,16 @@ let reviewSlider = new Swiper('.reviews__slider', {
     clickable: true,
     bulletClass: 'reviews__dot',
     bulletActiveClass: 'reviews__dot--active'
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 40
+    },
+    992: {
+      slidesPerView: 3,
+      spaceBetween: 28
+    }
   }
 });
 
@@ -99,8 +109,8 @@ let reviewSlider = new Swiper('.reviews__slider', {
 let teamSlider = new Swiper('.team__slider-container', {
 
   loop: false,
-  slidesPerView: 1,
-  spaceBetween: 20,
+  slidesPerView: 1.2,
+  spaceBetween: 40,
   grabCursor: true,
 
   // Navigation arrows
