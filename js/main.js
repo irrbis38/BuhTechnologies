@@ -109,9 +109,27 @@ let reviewSlider = new Swiper('.reviews__slider', {
 let teamSlider = new Swiper('.team__slider-container', {
 
   loop: false,
-  slidesPerView: 1.2,
+  slidesPerView: 1.20,
   spaceBetween: 40,
   grabCursor: true,
+  breakpoints: {
+    576: {
+      slidesPerView: 1.2,
+      spaceBetween: 30
+    },
+    768: {
+      slidesPerView: 1.2,
+      spaceBetween: 40
+    },
+    992: {
+      slidesPerView: 1.25,
+      spaceBetween: 10
+    },
+    1200: {
+      slidesPerView: 1.2,
+      spaceBetween: 40
+    }
+  },
 
   // Navigation arrows
   navigation: {
@@ -177,3 +195,23 @@ map.addEventListener('click', () => {
 
 mapBG.addEventListener('click', mapClose);
 mapCloser.addEventListener('click', mapClose);
+
+// burger menu
+
+let burger = document.querySelector('.header__burger');
+let burgerNav = document.querySelector('.burger__nav');
+let burgerBG = document.querySelector('.burger__bg');
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  burgerNav.classList.toggle('active');
+  burgerBG.classList.toggle('active');
+  body.classList.toggle('lock');
+});
+
+burgerBG.addEventListener('click', () => {
+  burger.classList.remove('active');
+  burgerNav.classList.remove('active');
+  burgerBG.classList.remove('active');
+  body.classList.remove('lock');
+});
