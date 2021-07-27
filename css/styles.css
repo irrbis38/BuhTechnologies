@@ -2612,6 +2612,7 @@ button {
   .application__name,
   .application__phone {
     width: 100%;
+    margin-right: 0;
     margin-bottom: 19px;
   }
   .application__phone {
@@ -3096,6 +3097,10 @@ button {
   .application {
     background: -webkit-gradient(linear, right top, left top, color-stop(-43.63%, #e6e9ea), color-stop(93.11%, #f1f2f3)) center;
     background: linear-gradient(270deg, #e6e9ea -43.63%, #f1f2f3 93.11%) center;
+  }
+  .input__name,
+  .input__phone {
+    width: 100%;
   }
   .meaning__item {
     -ms-flex-wrap: wrap;
