@@ -544,7 +544,8 @@ button {
 }
 
 .intro__about:hover {
-  border: 2px solid #241f20;
+  border: 1px solid #f3214b;
+  color: #f3214b;
 }
 
 /*===== staff styles =====*/
@@ -1507,24 +1508,19 @@ button {
 }
 
 .clients__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (175px)[6];
+      grid-template-columns: repeat(6, 175px);
+  -ms-grid-rows: 35px;
+      grid-template-rows: 35px;
+  grid-gap: 30px 20px;
 }
 
 .clients__logo {
-  height: 35px;
-  width: auto;
-  margin-right: 20px;
-  margin-bottom: 30px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /*===== reviews styles =====*/
@@ -2491,6 +2487,16 @@ button {
   .team__next {
     right: 30px;
   }
+  .clients__wrapper {
+    -ms-grid-columns: (150px)[5];
+        grid-template-columns: repeat(5, 150px);
+    -ms-grid-rows: 30px;
+        grid-template-rows: 30px;
+    grid-gap: 30px 20px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .ability__wrapper {
     -ms-grid-columns: 643px;
         grid-template-columns: 643px;
@@ -2730,6 +2736,13 @@ button {
   .team__prev {
     left: -30px;
   }
+  .clients__wrapper {
+    -ms-grid-columns: (150px)[4];
+        grid-template-columns: repeat(4, 150px);
+    -ms-grid-rows: 30px;
+        grid-template-rows: 30px;
+    grid-gap: 30px 20px;
+  }
   .secondApp {
     padding: 0;
     background: transparent;
@@ -2916,6 +2929,13 @@ button {
   }
   .team__prev {
     left: 5px;
+  }
+  .clients__wrapper {
+    -ms-grid-columns: (150px)[3];
+        grid-template-columns: repeat(3, 150px);
+    -ms-grid-rows: 30px;
+        grid-template-rows: 30px;
+    grid-gap: 30px 20px;
   }
   .ability__wrapper {
     -ms-grid-columns: 313px;
@@ -3206,11 +3226,15 @@ button {
     margin-bottom: 17px;
     padding: 13px 16px;
   }
-  .clients__logo {
-    height: 16px;
-    width: auto;
-    margin-right: 15px;
-    margin-bottom: 12px;
+  .clients__wrapper {
+    -ms-grid-columns: (125px)[3];
+        grid-template-columns: repeat(3, 125px);
+    -ms-grid-rows: 25px;
+        grid-template-rows: 25px;
+    grid-gap: 20px 15px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .reviews__subheading {
     min-height: 40px;
@@ -3257,5 +3281,18 @@ button {
         -ms-flex-order: 2;
             order: 2;
     background: url(./../img/map-bg.png) center/cover no-repeat;
+  }
+}
+
+@media (max-width: 440px) {
+  .clients__wrapper {
+    -ms-grid-columns: (125px)[2];
+        grid-template-columns: repeat(2, 125px);
+    -ms-grid-rows: 25px;
+        grid-template-rows: 25px;
+    grid-gap: 20px 15px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }

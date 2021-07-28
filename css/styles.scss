@@ -509,7 +509,8 @@ button {
   border: 1px solid #241f20;
 
   &:hover {
-    border: 2px solid #241f20;
+    border: 1px solid #f3214b;
+    color: #f3214b;
   }
 }
 
@@ -1334,18 +1335,31 @@ button {
   margin-bottom: 73px;
 }
 
+// .clients__wrapper {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   flex-wrap: wrap;
+// }
+
+// .clients__logo {
+//   height: auto;
+//   width: 175px;
+//   margin-right: 20px;
+//   margin-bottom: 30px;
+// }
+
 .clients__wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 175px);
+  grid-template-rows: 35px;
+  grid-gap: 30px 20px;
 }
 
 .clients__logo {
-  height: 35px;
-  width: auto;
-  margin-right: 20px;
-  margin-bottom: 30px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /*===== reviews styles =====*/
@@ -2305,6 +2319,13 @@ button {
     right: 30px;
   }
 
+  .clients__wrapper {
+    grid-template-columns: repeat(5, 150px);
+    grid-template-rows: 30px;
+    grid-gap: 30px 20px;
+    justify-content: space-between;
+  }
+
   .ability__wrapper {
     grid-template-columns: 643px;
     grid-template-rows: 200px 200px;
@@ -2584,6 +2605,12 @@ button {
     left: -30px;
   }
 
+  .clients__wrapper {
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: 30px;
+    grid-gap: 30px 20px;
+  }
+
   .secondApp {
     padding: 0;
     background: transparent;
@@ -2810,6 +2837,12 @@ button {
 
   .team__prev {
     left: 5px;
+  }
+
+  .clients__wrapper {
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: 30px;
+    grid-gap: 30px 20px;
   }
 
   .ability__wrapper {
@@ -3143,11 +3176,11 @@ button {
     padding: 13px 16px;
   }
 
-  .clients__logo {
-    height: 16px;
-    width: auto;
-    margin-right: 15px;
-    margin-bottom: 12px;
+  .clients__wrapper {
+    grid-template-columns: repeat(3, 125px);
+    grid-template-rows: 25px;
+    grid-gap: 20px 15px;
+    justify-content: center;
   }
 
   .reviews__subheading {
@@ -3199,5 +3232,14 @@ button {
     height: 50px;
     order: 2;
     background: url(./../img/map-bg.png) center/cover no-repeat;
+  }
+}
+
+@media (max-width: 440px) {
+  .clients__wrapper {
+    grid-template-columns: repeat(2, 125px);
+    grid-template-rows: 25px;
+    grid-gap: 20px 15px;
+    justify-content: center;
   }
 }
