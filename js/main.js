@@ -215,3 +215,144 @@ burgerBG.addEventListener('click', () => {
   burgerBG.classList.remove('active');
   body.classList.remove('lock');
 });
+
+
+// валидация форм
+
+const firstForm = document.querySelector('.first__form');
+const firstPhone = document.querySelector('.first__phone');
+const firstError = document.querySelector('.first__error');
+const secondForm = document.querySelector('.second__form');
+const secondPhone = document.querySelector('.second__phone');
+const secondError = document.querySelector('.second__error');
+const thirdForm = document.querySelector('.third__form');
+const thirdPhone = document.querySelector('.third__phone');
+const thirdError = document.querySelector('.third__error');
+const confirmSend = document.querySelector('.application__popup');
+const confirmBackground = document.querySelector('.application__bg');
+const popupOk = document.querySelector('.popup__btn');
+const popupCloser = document.querySelector('.popup__closer');
+const allPhoneInput = document.querySelectorAll('.input__phone');
+const introPopup = document.querySelector('.intro__popup');
+
+const showFirstError = () => {
+  firstError.classList.add('error');
+  firstPhone.classList.add('error');
+
+  if(firstPhone.validity.valueMissing) {
+    firstError.textContent = 'Поле обязательно для заполнения';
+  } else if(firstPhone.validity.tooShort) {
+    firstError.textContent = `Минимальное количество символов ${ firstPhone.minLength }. Вы ввели ${ firstPhone.value.length }.`;
+  } else if(firstPhone.validity.tooLong) {
+    firstError.textContent = `Максимальное количество символов ${ firstPhone.maxLength }. Вы ввели ${ firstPhone.value.length }.`;
+  }
+}
+
+const showSecondError = () => {
+  secondError.classList.add('error');
+  secondPhone.classList.add('error');
+
+  if(secondPhone.validity.valueMissing) {
+    secondError.textContent = 'Поле обязательно для заполнения';
+  } else if(secondPhone.validity.tooShort) {
+    secondError.textContent = `Минимальное количество символов ${ secondPhone.minLength }. Вы ввели ${ secondPhone.value.length }.`;
+  } else if(secondPhone.validity.tooLong) {
+    secondError.textContent = `Максимальное количество символов ${ secondPhone.maxLength }. Вы ввели ${ secondPhone.value.length }.`;
+  }
+}
+
+const showThirdError = () => {
+  thirdError.classList.add('error');
+  thirdPhone.classList.add('error');
+
+  if(thirdPhone.validity.valueMissing) {
+    thirdError.textContent = 'Поле обязательно для заполнения';
+  } else if(thirdPhone.validity.tooShort) {
+    thirdError.textContent = `Минимальное количество символов ${ thirdPhone.minLength }. Вы ввели ${ thirdPhone.value.length }.`;
+  } else if(thirdPhone.validity.tooLong) {
+    thirdError.textContent = `Максимальное количество символов ${ thirdPhone.maxLength }. Вы ввели ${ thirdPhone.value.length }.`;
+  }
+}
+
+const showPopup = () => {
+  confirmSend.classList.add('active');
+  confirmBackground.classList.add('active');
+  body.classList.add('lock');
+  // !!! Очищение формы. Удалить после добавления ajax-отправки.
+  allPhoneInput.forEach(el => el.value = '');
+  // !!! Очищение формы. Удалить после добавления ajax-отправки.
+};
+
+const hidePopup = () => {
+  confirmSend.classList.remove('active');
+  confirmBackground.classList.remove('active');
+  body.classList.remove('lock');
+  introPopup.classList.remove('active');
+};
+
+firstForm.addEventListener('submit', function (event) {
+  if(!firstPhone.validity.valid) {
+    showFirstError();
+    event.preventDefault();
+  } else {
+    showPopup();
+  }
+});
+
+firstPhone.addEventListener('focus', function (event) {
+  firstError.classList.remove('error');
+  firstPhone.classList.remove('error');
+});
+
+secondForm.addEventListener('submit', function (event) {
+  if(!secondPhone.validity.valid) {
+    showSecondError();
+    event.preventDefault();
+  } else {
+    showPopup();
+  }
+});
+
+secondPhone.addEventListener('focus', function (event) {
+  secondError.classList.remove('error');
+  secondPhone.classList.remove('error');
+});
+
+thirdForm.addEventListener('submit', function (event) {
+  if(!thirdPhone.validity.valid) {
+    showThirdError();
+    event.preventDefault();
+  } else {
+    hideOrder();
+    showPopup();
+  }
+});
+
+thirdPhone.addEventListener('focus', function (event) {
+  thirdError.classList.remove('error');
+  thirdPhone.classList.remove('error');
+});
+
+confirmBackground.addEventListener('click', hidePopup);
+popupOk.addEventListener('click', hidePopup);
+popupCloser.addEventListener('click', hidePopup);
+
+// появление всплывающего окна при нажатии на кнопку "заказать"
+
+const introOrder = document.querySelector('.intro__order');
+const introCloser = document.querySelector('.intro__closer');
+
+const showOrder = () => {
+  introPopup.classList.add('active');
+  confirmBackground.classList.add('active');
+  body.classList.add('lock');
+};
+
+const hideOrder = () => {
+  introPopup.classList.remove('active');
+  confirmBackground.classList.remove('active');
+  body.classList.remove('lock');
+};
+
+introOrder.addEventListener('click', showOrder);
+introCloser.addEventListener('click', hideOrder);

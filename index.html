@@ -147,9 +147,36 @@
 
                 </div>
 
-
-
             </div>
+
+            <div class="intro__popup">
+
+                <h3 class="application__title block__title">Оформите заявку прямо сейчас</h3>
+
+                <form action="#" class="application__form third__form" novalidate>
+    
+                    <div class="application__name">
+                        <p class="input__title">Имя</p>
+                        <input type="text" class="input__name" placeholder="Ваше имя">
+                    </div>
+    
+                    <div class="application__phone">
+                        <p class="input__title">Телефон</p>
+                        <input type="text" class="input__phone third__phone" placeholder="Ваш телефон" required minlength="9" maxlength="20">
+                        <span class="error__message third__error"></span>
+                    </div>
+    
+                    <label>
+                        <input type="submit" value="Продолжить" class="application__btn">
+                    </label>
+    
+                </form>
+
+                <img src="./img/popup-closer.svg" alt="закрыть" class="intro__closer">
+
+                <img width="224px" height="224px" src="./img/application-bg-second.png" alt="background" class="intro__tree">
+
+            </div><!-- /.intro__popup -->
 
         </div><!-- /.container -->
     </section><!-- /.intro -->
@@ -295,7 +322,7 @@
 
             <h3 class="application__title block__title">Оформите заявку прямо сейчас</h3>
 
-            <form action="#" class="application__form">
+            <form action="#" class="application__form first__form" novalidate>
 
                 <div class="application__name">
                     <p class="input__title">Имя</p>
@@ -304,7 +331,8 @@
 
                 <div class="application__phone">
                     <p class="input__title">Телефон</p>
-                    <input type="text" class="input__phone" placeholder="Ваш телефон" required minlength="9">
+                    <input type="text" class="input__phone first__phone" placeholder="Ваш телефон" required minlength="9" maxlength="20">
+                    <span class="error__message first__error"></span>
                 </div>
 
                 <label>
@@ -1400,7 +1428,7 @@
 
             <h3 class="application__title block__title">Оформите заявку прямо сейчас</h3>
 
-            <form action="#" class="application__form">
+            <form action="#" class="application__form second__form" novalidate>
 
                 <div class="application__name">
                     <p class="input__title">Имя</p>
@@ -1409,7 +1437,8 @@
 
                 <div class="application__phone">
                     <p class="input__title">Телефон</p>
-                    <input type="text" class="input__phone" placeholder="Ваш телефон" required minlength="9">
+                    <input type="text" class="input__phone second__phone" placeholder="Ваш телефон" required minlength="9" maxlength="20">
+                    <span class="error__message second__error"></span>
                 </div>
 
                 <label>

@@ -377,21 +377,22 @@ button {
 }
 
 .burger__nav {
+  visibility: hidden;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 70%;
   height: 100vh;
   z-index: 100;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   background-color: #ebebeb;
   padding: 40px;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-  overflow: scroll;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  overflow: hidden;
 }
 
 .burger__link {
@@ -400,8 +401,10 @@ button {
 }
 
 .burger__nav.active {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  visibility: visible;
+  display: block;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 .burger__link {
@@ -546,6 +549,65 @@ button {
 .intro__about:hover {
   border: 1px solid #f3214b;
   color: #f3214b;
+}
+
+.intro__popup {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 768px;
+  height: 424px;
+  padding: 50px 60px 60px 70px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.intro__popup.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.intro__popup .input__name,
+.intro__popup .input__phone {
+  border: 1px solid #eeeff1;
+  border-bottom: 1px solid #7f8a96;
+}
+
+.intro__popup .application__form {
+  display: block;
+}
+
+.intro__popup .application__name {
+  margin-bottom: 19px;
+}
+
+.intro__popup .application__phone {
+  margin-bottom: 30px;
+}
+
+.intro__popup .intro__closer {
+  position: absolute;
+  top: 29px;
+  right: 33px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.intro__popup .intro__tree {
+  position: absolute;
+  right: 60px;
+  bottom: 79px;
+  z-index: -1;
+}
+
+.intro__popup .error__message {
+  left: 0;
+  text-align-last: left;
 }
 
 /*===== staff styles =====*/
@@ -861,7 +923,7 @@ button {
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 10;
+  z-index: 101;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 550px;
@@ -1170,6 +1232,10 @@ button {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.tariffs__infoWrapper {
+  width: 100%;
 }
 
 .tariffs__info {
@@ -2280,6 +2346,33 @@ button {
   z-index: 10;
 }
 
+/*===== forms validation =====*/
+.application__phone {
+  position: relative;
+}
+
+.input__phone.error {
+  border-bottom: 2px solid #bd1133 !important;
+}
+
+.error__message {
+  display: none;
+  position: absolute;
+  width: 200%;
+  left: -50%;
+  bottom: -24px;
+  font-family: "Graphik LCG", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #bd1133;
+  z-index: 10;
+  text-align: center;
+}
+
+.error__message.error {
+  display: block;
+}
+
 /*===== =============== =====*/
 /*===== adoptive styles =====*/
 /*===== =============== =====*/
@@ -2590,6 +2683,11 @@ button {
   .intro__subtitle {
     font-size: 18px;
   }
+  .intro__popup {
+    width: 80vw;
+    height: 80vh;
+    overflow: auto;
+  }
   .staff__wrapper {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -2873,6 +2971,25 @@ button {
   .intro__about {
     width: 184px;
   }
+  .intro__popup {
+    padding: 30px 40px 40px 50px;
+  }
+  .intro__popup .application__name {
+    margin-bottom: 15px;
+  }
+  .intro__popup .application__phone {
+    margin-bottom: 30px;
+  }
+  .intro__popup .intro__closer {
+    top: 15px;
+    right: 20px;
+  }
+  .intro__popup .intro__tree {
+    display: none;
+  }
+  .intro__popup .application__title {
+    font-size: 18px;
+  }
   .staff__item {
     width: 200px;
     margin-right: 40px;
@@ -3088,6 +3205,19 @@ button {
     height: 42px;
     font-size: 14px;
   }
+  .intro__popup {
+    padding: 40px 15px 20px;
+  }
+  .intro__popup .intro__closer {
+    top: 5px;
+    right: 5px;
+  }
+  .intro__popup .application__title {
+    text-align: center;
+  }
+  .intro__popup .application__btn {
+    width: 100%;
+  }
   .staff__subtitle {
     text-align: center;
   }
@@ -3281,6 +3411,23 @@ button {
         -ms-flex-order: 2;
             order: 2;
     background: url(./../img/map-bg.png) center/cover no-repeat;
+  }
+  .application__popup {
+    padding: 5px;
+    width: 90vw;
+  }
+  .popup__heading {
+    font-size: 22px;
+  }
+  .popup__text {
+    font-size: 14px;
+  }
+  .popup__closer {
+    top: 9px;
+    right: 3px;
+  }
+  .error__message {
+    font-size: 12px;
   }
 }
 
