@@ -380,8 +380,9 @@ button {
   border-bottom-right-radius: 10px;
   background-color: #ebebeb;
   padding: 40px;
-  transition: transform 0.2s linear;
-  overflow: hidden;
+  transform: translateX(0);
+  transition: all 0.2s linear;
+  overflow: auto;
 }
 
 .burger__link {
@@ -392,7 +393,7 @@ button {
 .burger__nav.active {
   visibility: visible;
   display: block;
-  transform: translateX(100%);
+  transform: translateX(140%);
 }
 
 .burger__link {
@@ -485,6 +486,7 @@ button {
 .intro__about {
   display: block;
   margin-right: 11px;
+  font-family: "Graphik LCG", sans-serif;
   font-size: 18px;
   line-height: 18px;
   border-radius: 4px;
@@ -561,6 +563,14 @@ button {
     right: 33px;
     cursor: pointer;
     z-index: 10;
+
+    & path {
+      transition: background-color 0.2s linear;
+    }
+
+    &:hover path {
+      fill: #93999a;
+    }
   }
 
   & .intro__tree {
@@ -808,6 +818,7 @@ button {
   border: none;
   outline: none;
   appearance: none;
+  font-family: "Graphik LCG", sans-serif;
   font-size: 18px;
   line-height: 18px;
   color: #f5f7f9;
@@ -885,6 +896,11 @@ button {
   font-size: 18px;
   line-height: 18px;
   color: #f5f7f9;
+  transition: background-color 0.2s linear;
+
+  &:hover {
+    background-color: #f3214b;
+  }
 }
 
 .popup__closer {
@@ -892,6 +908,14 @@ button {
   top: 29px;
   right: 33px;
   cursor: pointer;
+
+  & path {
+    transition: background-color 0.2s linear;
+  }
+
+  &:hover path {
+    fill: #93999a;
+  }
 }
 
 .application__bg {
@@ -930,9 +954,13 @@ button {
 
 .meaning__item {
   width: 28.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .meaning__heading {
+  min-height: 44px;
   margin-bottom: 25px;
   font-weight: 500;
   font-size: 22px;
@@ -941,6 +969,7 @@ button {
 }
 
 .meaning__text {
+  min-height: 51px;
   margin-bottom: 30px;
   font-weight: 300;
   font-size: 16px;
@@ -1043,12 +1072,20 @@ button {
     transition: all 0.2s ease-in-out;
   }
 
+  & svg {
+    transition: transform 0.2s ease-in-out;
+  }
+
   & path {
     transition: all 0.2s ease-in-out;
   }
 
   &:hover span {
     color: #dc143c;
+  }
+
+  &:hover svg {
+    transform: translateX(10px);
   }
 
   &:hover path {
@@ -1103,7 +1140,10 @@ button {
 }
 
 .tariffs__infoWrapper {
-  width: 100%;
+  // max-width: 749px;
+  // flex-shrink: 1;
+  // max-width: 100%;
+  flex-grow: 1;
 }
 
 .tariffs__info {
@@ -1129,6 +1169,7 @@ button {
 
 .tariffs__block {
   display: flex;
+  justify-content: space-between;
 }
 
 .tariffs__text {
@@ -1149,11 +1190,18 @@ button {
 }
 
 .tariffs__price {
+  min-width: 67px;
   margin-right: 70px;
 }
 
 .tariffs__staff {
+  min-width: 274px;
   margin-right: 33px;
+}
+
+.tariffs__docs {
+  min-width: 292px;
+  margin-right: 13px;
 }
 
 .tariffs__order {
@@ -1226,6 +1274,7 @@ button {
     display: block;
     max-width: 650px;
     height: auto;
+    box-sizing: border-box;
     border-radius: 4px;
   }
 }
@@ -1440,12 +1489,22 @@ button {
 
 .reviews__slider {
   margin-bottom: 45px;
+  padding-bottom: 10px;
 }
 
 .reviews__item {
+  // position: relative;
+  box-sizing: border-box;
+  // padding: 16px 16px 51px 16px;
+  // border: 1px solid #eeeff1;
+  // box-shadow: 0px 7px 14px rgba(11, 31, 53, 0.1);
+  // border-radius: 8px;
+  padding: 7px 14px 14px;
+}
+
+.reviews__block {
   position: relative;
   box-sizing: border-box;
-  // max-width: 361px;
   padding: 16px 16px 51px 16px;
   border: 1px solid #eeeff1;
   box-shadow: 0px 7px 14px rgba(11, 31, 53, 0.1);
@@ -1674,7 +1733,7 @@ button {
 
 .faq__item {
   border-top: 1px rgba(196, 196, 196, 0.8) solid;
-  padding: 27px 0 0 15px;
+  padding: 27px 0 0 0;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1683,6 +1742,7 @@ button {
 }
 
 .faq__heading {
+  padding-left: 15px;
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -1694,7 +1754,7 @@ button {
 .faq__opened {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 15px;
   transform: translateY(-50%);
   transition: all 0.3s ease-in-out;
 }
@@ -1708,6 +1768,7 @@ button {
 }
 
 .faq__text {
+  padding-left: 41px;
   max-height: 0;
   max-width: 856px;
   visibility: hidden;
@@ -1716,6 +1777,7 @@ button {
   font-size: 16px;
   line-height: 125%;
   color: #241f20;
+  background-color: #fbfbfb;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1875,8 +1937,11 @@ button {
 }
 
 .info__contacts {
-  max-width: 433px;
+  // max-width: 433px;
+  width: 48%;
   padding: 100px 0 120px 100px;
+  background: #fbfbfb;
+  border: 1px solid #eeeff1;
 }
 
 .info__title {
@@ -2155,6 +2220,11 @@ button {
   }
 }
 
+input,
+input::placeholder {
+  font-family: "Graphik LCG", sans-serif;
+}
+
 /*===== =============== =====*/
 /*===== adoptive styles =====*/
 /*===== =============== =====*/
@@ -2259,6 +2329,10 @@ button {
     font-size: 14px;
   }
 
+  // .tariffs__infoWrapper {
+  //   max-width: 749px;
+  // }
+
   .tariffs__subtitle {
     font-size: 18px;
     margin-bottom: 30px;
@@ -2309,6 +2383,7 @@ button {
   }
 
   .reviews__heading {
+    margin-bottom: 0;
     font-size: 18px;
   }
 
@@ -2620,7 +2695,7 @@ button {
 
   .meaning__item {
     width: 100%;
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
@@ -2814,7 +2889,7 @@ button {
 
 /*===== width <= 768px =====*/
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .container {
     max-width: 540px;
   }
@@ -2975,6 +3050,14 @@ button {
     grid-gap: 30px 20px;
   }
 
+  .faq__item {
+    padding-top: 20px;
+  }
+
+  .faq__heading {
+    margin-bottom: 20px;
+  }
+
   .ability__wrapper {
     grid-template-columns: 313px;
     grid-template-rows: repeat(2, 435px);
@@ -3008,10 +3091,6 @@ button {
     &:nth-child(3) {
       margin: 0;
     }
-  }
-
-  .info__map {
-    background: url("./../img/map-bg.png") -100px center / cover no-repeat;
   }
 
   .footer__logo {
@@ -3121,7 +3200,7 @@ button {
     min-width: auto;
     width: 242px;
     height: 242px;
-    left: -65px;
+    left: -50px;
     bottom: 0;
     z-index: 1;
 
@@ -3140,7 +3219,12 @@ button {
   .intro__subtitle,
   .intro__nav {
     // margin-left: 125px;
-    margin-left: 43%;
+    margin-left: 50%;
+  }
+
+  .intro__subtitle {
+    max-width: 137px;
+    font-size: 14px;
   }
 
   .intro__order,
@@ -3177,6 +3261,14 @@ button {
 
   .staff__item {
     margin-right: 0;
+
+    &:nth-child(n + 1) {
+      margin-bottom: 30px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .staff__icon {
@@ -3196,6 +3288,10 @@ button {
     grid-template-columns: repeat(2, 134px);
     grid-template-rows: repeat(3, 182px);
     grid-gap: 20px;
+  }
+
+  .effects__text {
+    font-size: 14px;
   }
 
   .simple__subtitle {
@@ -3218,10 +3314,20 @@ button {
     width: 60px;
     height: 60px;
     margin-right: 15px;
+    margin-bottom: 0;
+
+    & img {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   .simple__info {
     width: 73.97%;
+  }
+
+  .simple__number {
+    font-size: 16px;
   }
 
   .application {
@@ -3242,6 +3348,16 @@ button {
     flex-wrap: wrap;
   }
 
+  .meaning__heading {
+    margin-bottom: 5px;
+    min-height: auto;
+  }
+
+  .meaning__text {
+    min-height: auto;
+    margin-bottom: 10px;
+  }
+
   .meaning__about,
   .meaning__img {
     width: 100%;
@@ -3259,9 +3375,16 @@ button {
     padding: 25px 15px;
   }
 
+  .tariffs__subheading,
+  .tariffs__descr {
+    font-size: 12px;
+    line-height: 21px;
+  }
+
   .tariffs__btn {
     width: 100%;
     height: 42px;
+    margin-top: 15px;
   }
 
   .team__slider {
@@ -3294,6 +3417,18 @@ button {
     max-height: 145px;
   }
 
+  .faq__heading {
+    padding-left: 10px;
+  }
+
+  .faq__opened {
+    left: 10px;
+  }
+
+  .faq__text {
+    padding-left: 36px;
+  }
+
   .ability__btn,
   .unability__btn {
     flex-wrap: wrap;
@@ -3317,9 +3452,11 @@ button {
     display: block;
   }
 
-  .ability__item {
+  .ability__first .ability__item:nth-child(n),
+  .ability__second .ability__item:nth-child(n) {
+    height: 170px;
     width: 100%;
-    margin-bottom: 17px;
+    margin: 0 0 17px 0;
     padding: 13px 16px;
   }
 
@@ -3330,13 +3467,21 @@ button {
     justify-content: center;
   }
 
+  .reviews .container {
+    padding-right: 0;
+  }
+
   .reviews__subheading {
-    min-height: 40px;
+    min-height: 51px;
     margin-bottom: 10px;
   }
 
   .reviews__img {
-    height: 168px;
+    height: 146px;
+  }
+
+  .reviews__thanks {
+    font-size: 13px;
   }
 
   .secondApp {
@@ -3374,11 +3519,19 @@ button {
     padding: 0 16px;
   }
 
+  .info__heading {
+    font-size: 16px;
+  }
+
+  .info__wrapper {
+    grid-template-rows: 70px 70px 50px 50px;
+    margin-bottom: 30px;
+  }
+
   .info__map {
     width: 100%;
-    height: 50px;
+    height: 300px;
     order: 2;
-    background: url(./../img/map-bg.png) center/cover no-repeat;
   }
 
   .application__popup {
@@ -3410,5 +3563,13 @@ button {
     grid-template-rows: 25px;
     grid-gap: 20px 15px;
     justify-content: center;
+  }
+
+  .reviews__heading {
+    min-height: 54px;
+  }
+
+  .reviews__subheading {
+    min-height: 51px;
   }
 }

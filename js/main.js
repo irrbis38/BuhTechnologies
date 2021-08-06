@@ -82,8 +82,8 @@ for (let i = 0; i < reviewCloseAll.length; i++) {
 let reviewSlider = new Swiper('.reviews__slider', {
 
   loop: false,
-  slidesPerView: 1.2,
-  spaceBetween: 20,
+  slidesPerView: 1.12,
+  spaceBetween: 0,
   grabCursor: true,
   pagination: {
     el: '.reviews__dots',
@@ -99,7 +99,7 @@ let reviewSlider = new Swiper('.reviews__slider', {
     },
     992: {
       slidesPerView: 3,
-      spaceBetween: 28
+      spaceBetween: 10
     }
   }
 });
@@ -341,6 +341,7 @@ popupCloser.addEventListener('click', hidePopup);
 
 const introOrder = document.querySelector('.intro__order');
 const introCloser = document.querySelector('.intro__closer');
+const tariffsOrders = document.querySelectorAll('.tariffs__btn');
 
 const showOrder = () => {
   introPopup.classList.add('active');
@@ -355,4 +356,5 @@ const hideOrder = () => {
 };
 
 introOrder.addEventListener('click', showOrder);
+tariffsOrders.forEach(el => el.addEventListener('click', showOrder));
 introCloser.addEventListener('click', hideOrder);
