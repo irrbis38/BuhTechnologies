@@ -110,24 +110,24 @@ let teamSlider = new Swiper('.team__slider-container', {
 
   loop: false,
   slidesPerView: 1.20,
-  spaceBetween: 40,
+  spaceBetween: -10,
   grabCursor: true,
   breakpoints: {
     576: {
-      slidesPerView: 1.2,
-      spaceBetween: 30
+      slidesPerView: 1.15,
+      spaceBetween: 20
     },
     768: {
-      slidesPerView: 1.2,
-      spaceBetween: 40
+      slidesPerView: 1.15,
+      spaceBetween: 20
     },
     992: {
       slidesPerView: 1.25,
       spaceBetween: 10
     },
     1200: {
-      slidesPerView: 1.2,
-      spaceBetween: 40
+      slidesPerView: 1.15,
+      spaceBetween: 25
     }
   },
 
@@ -140,6 +140,7 @@ let teamSlider = new Swiper('.team__slider-container', {
 
 let teamPrev = document.querySelector('.team__prev');
 let teamNext = document.querySelector('.team__next');
+let teamSliderBG = document.querySelector('.team__sliderBG');
 
 teamSlider.on('activeIndexChange', function () {
   if (teamSlider.activeIndex==0) {
@@ -152,8 +153,10 @@ teamSlider.on('activeIndexChange', function () {
 teamSlider.on('activeIndexChange', function () {
   if (teamSlider.activeIndex==4) {
     teamNext.classList.add('hidden');
+    teamSliderBG.classList.add('hidden');
   } else {
     teamNext.classList.remove('hidden');
+    teamSliderBG.classList.remove('hidden');
   }
 });
 
